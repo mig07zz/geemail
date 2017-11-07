@@ -20,18 +20,28 @@ int main (int argc, char* argv[]){
     
     /*open database*/
     mysql_driver.open_database(databaseName);
-    string  tname;
-    string c1;
-    string c2;
-    string c3;
+   
+   table_3col_t users_table;
+   users_table.tableName = "user_entries";
+   users_table.col1 = "username";
+   users_table.col2 = "password";
+   users_table.col3 = "salt";
+        // string  tname;
+    // string c1;
+    // string c2;
+    // string c3;
     
-    tname = "user_entries";
-    c1 = "username";
-    c2 = "password";
-    c3 = "salt";
+    // tname = "user_entries";
+    // c1 = "username";
+    // c2 = "password";
+    // c3 = "salt";
 
-    mysql_driver.make_3_coloumn_table(tname,c1,c2,c3);
+    mysql_driver.make_3_coloumn_table(users_table.tableName,users_table.col1,users_table.col2,users_table.col3);
     
+    cout<<"back in main"<<endl;
+    cout<<"testing the insert function"<<endl;
+    mysql_driver.insert_into_3_col_table(&users_table,"miguel","password","salt");
+    cout<<"back from main"<<endl;
     
     return 0;
 }

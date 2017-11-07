@@ -11,6 +11,13 @@ this is a class to use sqlite commands using cpp
 using namespace std;
 
 extern sqlite3 *db;
+typedef struct{
+    string tableName;
+    string col1;
+    string col2;
+    string col3;
+}table_3col_t;
+
 static int callback(void *NotUsed, int argc, char **argv, char **azColName);
 class sql_driver{
     
@@ -20,6 +27,7 @@ class sql_driver{
         sql_driver();
         void open_database(const char * db_name);
         void make_3_coloumn_table(string tablename,string c1,string c2,string c3);
+        void insert_into_3_col_table(table_3col_t *t,string c1,string c2,string c3);
     private:
     
 };
