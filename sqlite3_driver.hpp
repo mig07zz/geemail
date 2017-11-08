@@ -27,7 +27,9 @@ class sql_driver{
         sql_driver();
         void open_database(const char * db_name);
         void make_3_coloumn_table(string tablename,string c1,string c2,string c3);
-        void insert_into_3_col_table(table_3col_t *t,string c1,string c2,string c3);
+        void insert_into_3_col_table(table_3col_t *t,int id,string c1,string c2,string c3);
+        void show_table_3col(table_3col_t *t);
+        void drop_table(string tableName);
     private:
     
 };
